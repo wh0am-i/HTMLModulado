@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script id="JS" type="text/javascript" src=""></script>
+    <title>Aula HTML</title>
+</head>
+
+<body>
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href="./atividades/teste.html">00 - Teste</a> |
+        <a href="./atividades/texto.html">01 - Texto</a> |
+        <a href="./atividades/validar.html">02 - Validar</a> |
+        <a href="./atividades/regex.html">03 - Regex</a>
+    </nav>
+    <section id="conteudo"></section> <!--Section que apresentará o conteúdo da página de acordo com o selecionado-->
+    <footer>
+        Curso Integrado Médio/Técnico SESI/SENAI
+    </footer>
+    <script>
+        var jsDoc = document.getElementById("JS") //conteúdo js de acordo com a página
+        document.querySelectorAll('a').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+
+            link.onclick = function (e) {
+                e.preventDefault()
+                let newScript = document.createElement('script');
+                newScript.id = "JS";
+                newScript.type = "text/javascript"
+
+                if (link.href.includes("regex.html")) {
+                    newScript.src = "./regex.js";
+                } else if (link.href.includes("validar.html")) {
+                    newScript.src = "./validar.js";
+                }
+
+                document.getElementById("JS").remove(); // Remover a tag <script> antiga
+                document.head.appendChild(newScript);
+
+                fetch(link.href)
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html);
+            }
+        })
+    </script>
+</body>
+
+</html>

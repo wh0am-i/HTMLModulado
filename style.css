@@ -1,0 +1,47 @@
+form{
+    max-width: 320px;
+    width: auto;
+    height: 240px;
+    margin: auto;
+    padding: 32px;
+    background: #fff;
+    border-radius: 10px;
+}
+section{
+    margin-bottom: 10%;
+}
+form label{
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+form input.input{
+    display: block;
+    height: 36px;
+    margin-bottom: 8px;
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+form ul.verifica{
+    display: block;
+    margin-top: 15px;
+    font-size: 12px;
+    line-height: 22px;
+    color: #808080;
+}
+form ul.verifica li.valid{
+    color: #1ab23e;
+    text-decoration-line: line-through;
+}
+form ul.verifica li.caracterB.valid {
+    color: #bd0000;
+    text-decoration-line: none;
+}
+form ul.verifica li.verificaT.valid {
+    color: #bd0000;
+    text-decoration-line: none;
+}
+
